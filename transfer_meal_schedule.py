@@ -8,8 +8,16 @@ def open_excel_file() -> str:
     return filedialog.askopenfilename(title='献立表を選択してください。')
 
 
-def find_date_ranges(sheet: openpyxl.Worksheet) -> list[list[int]]:
-    start = find_start_of_dates(sheet)
+def find_start_of_dates(sheet: Worksheet) -> int:
+    for i, row in enumerate(sheet.iter_rows()):
+        if isinstance(row[0].value, int):
+            # we add one because openpyxl uses 1 indexing.
+            return i+1
+
+
+
+def find_date_ranges(sheet: Worksheet) -> list[list[int]]:
+    start_row = find_start_of_dates(sheet)
 
     date_ranges = []
     for row in sheet.iter_rows():
