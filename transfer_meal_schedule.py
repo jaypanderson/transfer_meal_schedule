@@ -6,6 +6,10 @@ def open_excel_file() -> str:
     return filedialog.askopenfilename(title='献立表を選択してください。')
 
 
+def fin_date_ranges(sheet: openpyxl.Workbook) -> list[list[int]]:
+    pass
+
+
 def extract_meal_data_big_kids(path: str) -> dict:
     book = openpyxl.load_workbook(path)
     sheet = book.active
