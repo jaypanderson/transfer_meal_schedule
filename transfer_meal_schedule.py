@@ -1,6 +1,7 @@
 import openpyxl
 from openpyxl.worksheet.worksheet import Worksheet
 from tkinter import filedialog
+from typing import Union
 
 
 
@@ -15,7 +16,7 @@ def find_start_of_dates(sheet: Worksheet) -> int:
             return i
 
 
-def find_date_ranges(sheet: Worksheet) -> dict[list[str | int]]:
+def find_date_ranges(sheet: Worksheet) -> dict[int, tuple[str, int, int]]:
     start_row = find_start_of_dates(sheet)
     date_ranges = {}
     date = None
@@ -28,7 +29,7 @@ def find_date_ranges(sheet: Worksheet) -> dict[list[str | int]]:
             day = row[1].value
         elif row[0].value is not None:
             end = i - 1
-            date_ranges[date] = [day, start, end]
+            date_ranges[date] = (day, start, end)
             start = i
             date = row[0].value
             day = row[1].value
