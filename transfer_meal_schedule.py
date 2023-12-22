@@ -21,18 +21,16 @@ def find_date_ranges(sheet: Worksheet) -> dict[list[str | int]]:
     date = None
     day = None
     start = None
-    end = None
     for i, row in enumerate(sheet.iter_rows(min_row=start_row), start=start_row):
-        if i == start_row and row[0].value is not None:
+        if i == start_row:
             start = i
             date = row[0].value
             day = row[1].value
             continue
-        if row[0].value is not None and end is None:
+        if row[0].value is not None:
             end = i - 1
             date_ranges[date] = [day, start, end]
             start = i
-            end = None
             date = row[0].value
             day = row[1].value
 
