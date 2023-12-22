@@ -9,6 +9,7 @@ def open_excel_file() -> str:
 def extract_meal_data_big_kids(path: str) -> dict:
     book = openpyxl.load_workbook(path)
     sheet = book.active
+    date_ranges = find_date_ranges(sheet)
 
 
 def transfer_meal_schedule_big_kids():
