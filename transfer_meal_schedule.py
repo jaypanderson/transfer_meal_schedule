@@ -1,9 +1,9 @@
 import openpyxl
-import tkinter as tk
+from tkinter import filedialog
 
 
 def open_excel_file() -> str:
-    pass
+    return filedialog.askopenfilename(title='献立表を選択してください。')
 
 
 def transfer_meal_schedule_big_kids():
