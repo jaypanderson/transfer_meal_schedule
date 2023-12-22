@@ -1,13 +1,16 @@
 import openpyxl
+from openpyxl.worksheet.worksheet import Worksheet
 from tkinter import filedialog
+
 
 
 def open_excel_file() -> str:
     return filedialog.askopenfilename(title='献立表を選択してください。')
 
 
-def find_date_ranges(sheet: openpyxl.Workbook) -> list[list[int]]:
-    pass
+def find_date_ranges(sheet: openpyxl.Worksheet) -> list[list[int]]:
+    for row in sheet.iter_rows():
+
 
 
 def extract_meal_data_big_kids(path: str) -> dict:
