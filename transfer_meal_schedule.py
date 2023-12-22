@@ -9,7 +9,14 @@ def open_excel_file() -> str:
 
 
 def find_date_ranges(sheet: openpyxl.Worksheet) -> list[list[int]]:
+    start = find_start_of_dates(sheet)
+
+    date_ranges = []
     for row in sheet.iter_rows():
+
+        if row[0].value is not None:
+
+
 
 
 
