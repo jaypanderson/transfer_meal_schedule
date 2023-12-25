@@ -69,6 +69,10 @@ def extract_meal_data_big_kids(path: str) -> dict:
     return meal_data_big_kids
 
 
+def paste_meal_data_big_kids(path: str, meal_data_big_kids: dict):
+    pass
+
+
 def transfer_meal_schedule_big_kids():
     excel_path = choose_file(1)
     word_path = choose_file(2)
