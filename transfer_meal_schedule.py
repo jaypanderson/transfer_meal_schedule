@@ -68,11 +68,10 @@ def transfer_meal_schedule_big_kids():
     path = open_excel_file()
     meal_data_big_kids = extract_meal_data_big_kids(path)
     print(meal_data_big_kids)
-    return meal_data_big_kids
 
 
 def main():
-    meal_data_big_kids = transfer_meal_schedule_big_kids()
+    transfer_meal_schedule_big_kids()
 
 
 if __name__ == '__main__':
