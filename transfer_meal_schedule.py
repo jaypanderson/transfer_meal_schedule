@@ -3,6 +3,7 @@ from openpyxl.worksheet.worksheet import Worksheet
 from tkinter import filedialog
 from typing import Union
 import docx
+from copy import deepcopy
 
 
 def choose_file(file_type: int) -> str:
@@ -104,15 +105,23 @@ def copy_table(original_table, new_doc):
 
 def paste_meal_data_big_kids(path: str, meal_data_big_kids: dict):
     doc = docx.Document(path)
-    elements = [(p, 'p') for p in doc.paragraphs] + [(t, 't') for t in doc.tables]
-    for i, _ in enumerate(meal_data_big_kids):
-        for element, el_type in elements:
-            if el_type == 'p':
-                copy_paragraph(element, doc)
-            elif el_type == 't':
-                copy_table(element, doc)
+    new_path = new_file_path(path, added_text='complete_test')
+    new_doc = docx.Document(new_path)
+    for i, _ in meal_data_big_kids:
+        body_elements = deepcopy(doc.element.body)
+        new_doc.element.body.extend(body_elements)
         if i+1 != len(meal_data_big_kids):
-            doc.add_page_break()
+            new_doc.add_page_break()
+
+    # elements = [(p, 'p') for p in doc.paragraphs] + [(t, 't') for t in doc.tables]
+    # for i, _ in enumerate(meal_data_big_kids):
+    #     for element, el_type in elements:
+    #         if el_type == 'p':
+    #             copy_paragraph(element, doc)
+    #         elif el_type == 't':
+    #             copy_table(element, doc)
+    #     if i+1 != len(meal_data_big_kids):
+    #         doc.add_page_break()
 
     doc.save(new_file_path(path, added_text='complete_test'))
 
