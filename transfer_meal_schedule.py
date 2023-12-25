@@ -4,7 +4,7 @@ from tkinter import filedialog
 from typing import Union
 
 
-def open_excel_file() -> str:
+def choose_file() -> str:
     return filedialog.askopenfilename(title='献立表を選択してください。')
 
 
@@ -65,7 +65,7 @@ def extract_meal_data_big_kids(path: str) -> dict:
 
 
 def transfer_meal_schedule_big_kids():
-    path = open_excel_file()
+    path = choose_file()
     meal_data_big_kids = extract_meal_data_big_kids(path)
     print(meal_data_big_kids)
 
