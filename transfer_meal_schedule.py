@@ -87,7 +87,15 @@ def new_file_path(path: str, added_text: str = 'result') -> str:
 
 def paste_meal_data_big_kids(path: str, meal_data_big_kids: dict):
     doc = docx.Document(path)
-    for i in meal_data_big_kids:
+    contents = list(doc.element.body)
+    for i, val in enumerate(meal_data_big_kids):
+        for content in contents:
+            doc.element.body.append(content.clone())
+        if i+1 != len(meal_data_big_kids):
+            doc.add_page_break()
+
+    doc.save(new_file_path(path, added_text='complete test'))
+
 
 
 
