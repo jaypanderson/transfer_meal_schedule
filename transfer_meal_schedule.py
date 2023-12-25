@@ -36,7 +36,7 @@ def find_date_ranges(sheet: Worksheet) -> dict[int, tuple[str, int, int]]:
     return date_ranges
 
 
-def gather_text(sheet: Worksheet, start: int, end: int) -> tuple(str):
+def gather_text(sheet: Worksheet, start: int, end: int) -> tuple[str]:
     breakfast = []
     lunch = []
     snack = []
@@ -67,6 +67,7 @@ def extract_meal_data_big_kids(path: str) -> dict:
 def transfer_meal_schedule_big_kids():
     path = open_excel_file()
     meal_data = extract_meal_data_big_kids(path)
+    print(meal_data)
     pass
 
 
