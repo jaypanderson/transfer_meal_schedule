@@ -104,11 +104,13 @@ def copy_table(original_table, new_doc):
 
 def paste_meal_data_big_kids(path: str, meal_data_big_kids: dict):
     doc = docx.Document(path)
-    contents = list(doc.element.body)
-    for i, val in enumerate(meal_data_big_kids):
-        for content in contents:
-            doc.element.body.append(content)
-        if i+1 != len(meal_data_big_kids):
+    elements = [(p, 'p') for p in doc.paragraphs] + [(t, 't') for t in doc.tables]
+    for i, (element, el_type) in enumerate(elements):
+        if el_type == 'p':
+            copy_paragraph(element, doc)
+        elif el_type == 't':
+            copy_table(element, doc)
+        if i+1 != len(elements):
             doc.add_page_break()
 
     doc.save(new_file_path(path, added_text='complete_test'))
