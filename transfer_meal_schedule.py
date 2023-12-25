@@ -4,8 +4,12 @@ from tkinter import filedialog
 from typing import Union
 
 
-def choose_file() -> str:
-    return filedialog.askopenfilename(title='献立表を選択してください。')
+def choose_file(type) -> str:
+    if type == 1:
+        title = '献立表を選択してください。'
+    elif type == 2:
+        title = '検食簿原本を選択してください。'
+    return filedialog.askopenfilename(title=title)
 
 
 def find_start_of_dates(sheet: Worksheet) -> int:
