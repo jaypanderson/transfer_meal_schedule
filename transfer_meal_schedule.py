@@ -2,8 +2,7 @@ import openpyxl
 from openpyxl.worksheet.worksheet import Worksheet
 from tkinter import filedialog
 from typing import Union
-import docx
-from copy import deepcopy
+
 
 
 def choose_file(file_type: int) -> str:
@@ -86,36 +85,9 @@ def new_file_path(path: str, added_text: str = 'result') -> str:
     return ans
 
 
-def copy_paragraph(original_para, new_doc):
-    new_para = new_doc.add_paragraph()
-    for run in original_para.runs:
-        new_run = new_para.add_run(run.text)
-        # Copy basic formatting (extend this as needed)
-        new_run.bold = run.bold
-        new_run.italic = run.italic
-        new_run.underline = run.underline
-
-def copy_table(original_table, new_doc):
-    new_table = new_doc.add_table(rows=0, cols=len(original_table.columns))
-    for row in original_table.rows:
-        cells = new_table.add_row().cells
-        for i, cell in enumerate(row.cells):
-            cells[i].text = cell.text
-
 
 def paste_meal_data_big_kids(path: str, meal_data_big_kids: dict):
-    doc = docx.Document(path)
-    new_path = new_file_path(path, added_text='complete_test')
-    new_doc = docx.Document()
-    body_elements = deepcopy(doc.element.body)
-    for i, _ in enumerate(meal_data_big_kids):
-        for element in doc.element.body:
-            new_element = deepcopy(element)
-            new_doc.element.body.append(new_element)
-        if i+1 != len(meal_data_big_kids):
-            print('test', i)
-            new_doc.add_page_break()
-    new_doc.save(new_path)
+    pass
 
 
 
