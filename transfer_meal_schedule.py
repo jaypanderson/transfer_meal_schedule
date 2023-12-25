@@ -37,7 +37,10 @@ def find_date_ranges(sheet: Worksheet) -> dict[int, tuple[str, int, int]]:
 
 
 def gather_text(start: int, end: int) -> tuple(str):
-    pass
+    breakfast = []
+    lunch = []
+    snack = []
+
 
 
 def extract_meal_data_big_kids(path: str) -> dict:
@@ -49,7 +52,7 @@ def extract_meal_data_big_kids(path: str) -> dict:
         day = val[0]
         start = val[1]
         end = val[2]
-        date_ranges[key] = (day,) + gather_text(start, end)
+        date_ranges[key] = (day,) + gather_text(sheet, start, end)
     print(date_ranges)
 
 
