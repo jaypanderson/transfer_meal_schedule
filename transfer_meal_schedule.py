@@ -74,6 +74,7 @@ def transfer_meal_schedule_big_kids():
     word_path = choose_file(2)
     meal_data_big_kids = extract_meal_data_big_kids(excel_path)
     print(meal_data_big_kids)
+    paste_meal_data_big_kids(word_path, meal_data_big_kids)
 
 
 
