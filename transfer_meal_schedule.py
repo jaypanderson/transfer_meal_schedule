@@ -40,6 +40,12 @@ def extract_meal_data_big_kids(path: str) -> dict:
     book = openpyxl.load_workbook(path)
     sheet = book.active
     date_ranges = find_date_ranges(sheet)
+    meal_data_big_kids = {}
+    for key, val in date_ranges.items():
+        day = val[0]
+        start = val[1]
+        end = val[2]
+        date_ranges[key] = (day,) + gather_text(start, end)
     print(date_ranges)
 
 
