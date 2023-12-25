@@ -71,8 +71,10 @@ def extract_meal_data_big_kids(path: str) -> dict:
 
 def transfer_meal_schedule_big_kids():
     excel_path = choose_file(1)
+    word_path = choose_file(2)
     meal_data_big_kids = extract_meal_data_big_kids(excel_path)
     print(meal_data_big_kids)
+
 
 
 
