@@ -66,13 +66,13 @@ def extract_meal_data_big_kids(path: str) -> dict:
 
 def transfer_meal_schedule_big_kids():
     path = open_excel_file()
-    meal_data = extract_meal_data_big_kids(path)
-    print(meal_data)
-    pass
+    meal_data_big_kids = extract_meal_data_big_kids(path)
+    print(meal_data_big_kids)
+    return meal_data_big_kids
 
 
 def main():
-    transfer_meal_schedule_big_kids()
+    meal_data_big_kids = transfer_meal_schedule_big_kids()
 
 
 if __name__ == '__main__':
