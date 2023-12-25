@@ -36,6 +36,10 @@ def find_date_ranges(sheet: Worksheet) -> dict[int, tuple[str, int, int]]:
     return date_ranges
 
 
+def gather_text(start: int, end: int) -> tuple(str):
+    pass
+
+
 def extract_meal_data_big_kids(path: str) -> dict:
     book = openpyxl.load_workbook(path)
     sheet = book.active
@@ -47,10 +51,6 @@ def extract_meal_data_big_kids(path: str) -> dict:
         end = val[2]
         date_ranges[key] = (day,) + gather_text(start, end)
     print(date_ranges)
-
-
-def gather_text(start: int, end: int) -> tuple(str):
-    pass
 
 
 def transfer_meal_schedule_big_kids():
