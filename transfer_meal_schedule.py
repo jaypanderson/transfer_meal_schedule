@@ -70,8 +70,27 @@ def extract_meal_data_big_kids(path: str) -> dict:
     return meal_data_big_kids
 
 
+# add result to the end of the file name
+def new_file_path(path: str, added_text: str = 'result') -> str:
+    """
+    This function creates a new name for the path of a save file. This is to avoid saving over the original Excel file
+    that was used to create the new one. It places a new text between the name and the extension name. If no added_text
+    is provided the default 'result' will be used.
+    :param path: The path of the original Excel file.
+    :param added_text: The text that will be added inbetween the name and the extension name of the original path.
+    :return: The newly formed name path where the new Excel file will be saved to.
+    """
+    idx = path.find('.')
+    ans = path[:idx] + added_text + path[idx:]
+    return ans
+
+
 def paste_meal_data_big_kids(path: str, meal_data_big_kids: dict):
-    doc = choose_file(2)
+    doc = docx.Document(path)
+    for i in meal_data_big_kids:
+
+
+
 
 
 def transfer_meal_schedule_big_kids():
