@@ -4,11 +4,13 @@ from tkinter import filedialog
 from typing import Union
 
 
-def choose_file(type) -> str:
-    if type == 1:
+def choose_file(file_type: int) -> str:
+    if file_type == 1:
         title = '献立表を選択してください。'
-    elif type == 2:
+    elif file_type == 2:
         title = '検食簿原本を選択してください。'
+    else:
+        title = ''
     return filedialog.askopenfilename(title=title)
 
 
