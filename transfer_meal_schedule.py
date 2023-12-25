@@ -36,7 +36,7 @@ def find_date_ranges(sheet: Worksheet) -> dict[int, tuple[str, int, int]]:
     return date_ranges
 
 
-def gather_text(start: int, end: int) -> tuple(str):
+def gather_text(sheet: Worksheet, start: int, end: int) -> tuple(str):
     breakfast = []
     lunch = []
     snack = []
