@@ -60,8 +60,8 @@ def extract_meal_data_big_kids(path: str) -> dict:
         day = val[0]
         start = val[1]
         end = val[2]
-        date_ranges[key] = (day,) + gather_text(sheet, start, end)
-    print(date_ranges)
+        meal_data_big_kids[key] = (day,) + gather_text(sheet, start, end)
+    return meal_data_big_kids
 
 
 def transfer_meal_schedule_big_kids():
