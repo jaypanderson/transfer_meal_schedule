@@ -2,6 +2,7 @@ import openpyxl
 from openpyxl.worksheet.worksheet import Worksheet
 from tkinter import filedialog
 from typing import Union
+import docx
 
 
 def choose_file(file_type: int) -> str:
@@ -70,7 +71,7 @@ def extract_meal_data_big_kids(path: str) -> dict:
 
 
 def paste_meal_data_big_kids(path: str, meal_data_big_kids: dict):
-    pass
+    doc = 
 
 
 def transfer_meal_schedule_big_kids():
