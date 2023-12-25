@@ -56,7 +56,6 @@ def gather_text(sheet: Worksheet, start: int, end: int) -> tuple[str]:
     return '\n'.join(breakfast), '\n'.join(lunch), '\n'.join(snack)
 
 
-
 def extract_meal_data_big_kids(path: str) -> dict:
     book = openpyxl.load_workbook(path)
     sheet = book.active
@@ -71,9 +70,10 @@ def extract_meal_data_big_kids(path: str) -> dict:
 
 
 def transfer_meal_schedule_big_kids():
-    path = choose_file()
-    meal_data_big_kids = extract_meal_data_big_kids(path)
+    excel_path = choose_file(1)
+    meal_data_big_kids = extract_meal_data_big_kids(excel_path)
     print(meal_data_big_kids)
+
 
 
 def main():
