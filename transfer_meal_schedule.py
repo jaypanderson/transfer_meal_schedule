@@ -71,7 +71,7 @@ def extract_meal_data_big_kids(path: str) -> dict:
 
 
 def paste_meal_data_big_kids(path: str, meal_data_big_kids: dict):
-    doc = 
+    doc = choose_file(2)
 
 
 def transfer_meal_schedule_big_kids():
