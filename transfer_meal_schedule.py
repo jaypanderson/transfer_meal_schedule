@@ -2,6 +2,7 @@ import openpyxl
 from openpyxl.worksheet.worksheet import Worksheet
 from tkinter import filedialog
 from typing import Union
+from copy import copy
 
 
 
