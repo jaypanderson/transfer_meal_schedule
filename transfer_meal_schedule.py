@@ -85,9 +85,9 @@ def new_file_path(path: str, added_text: str = 'result') -> str:
     return ans
 
 
-
 def paste_meal_data_big_kids(path: str, meal_data_big_kids: dict):
-    pass
+    book = openpyxl.load_workbook(path)
+    sheet = book.active
 
 
 
