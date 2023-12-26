@@ -169,6 +169,7 @@ def paste_meal_data_big_kids(path: str, meal_data_big_kids: dict):
         copy_dimensions(sheet, new_sheet)
         copy_print_area(sheet, new_sheet)
         copy_margins(sheet, new_sheet)
+        copy_page_size(sheet, new_sheet)
 
     book.save(new_file_path(path, added_text='_test_complete'))
 
