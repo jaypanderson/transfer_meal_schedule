@@ -111,7 +111,7 @@ def copy_sheet(sheet: Worksheet, new_sheet: Worksheet) -> None:
 def paste_meal_data_big_kids(path: str, meal_data_big_kids: dict):
     book = openpyxl.load_workbook(path)
     sheet = book.active
-    for key, val in meal_data_big_kids:
+    for key, val in meal_data_big_kids.items():
         new_sheet = book.create_sheet(f'{key}({val[0]})')
         copy_sheet(sheet, new_sheet)
     book.save(new_file_path(path, added_text='_test_complete'))
