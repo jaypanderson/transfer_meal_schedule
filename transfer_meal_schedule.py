@@ -172,13 +172,17 @@ def copy_all_elements(sheet: Worksheet, new_sheet: Worksheet):
     copy_page_size(sheet, new_sheet)
 
 
+def insert_data_big_kids(date: int, data: tuple[str], new_sheet: Worksheet):
+
+
+
 def paste_meal_data_big_kids(path: str, meal_data_big_kids: dict):
     book = openpyxl.load_workbook(path)
     sheet = book.active
     for key, val in meal_data_big_kids.items():
         new_sheet = book.create_sheet(f'{key}({val[0]})')
         copy_all_elements(sheet, new_sheet)
-        insert_data(key, val, new_sheet)
+        insert_data_big_kids(key, val, new_sheet)
 
     book.save(new_file_path(path, added_text='_test_complete'))
 
