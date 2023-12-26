@@ -155,6 +155,10 @@ def copy_print_area(sheet: Worksheet, new_sheet: Worksheet) -> None:
         new_sheet.print_area = sheet.print_area
 
 
+def copy_margins(sheet: Worksheet, new_sheet: Worksheet):
+    new_sheet.page_margins = sheet.page_margins
+
+
 def paste_meal_data_big_kids(path: str, meal_data_big_kids: dict):
     book = openpyxl.load_workbook(path)
     sheet = book.active
