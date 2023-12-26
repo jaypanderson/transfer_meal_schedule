@@ -1,6 +1,8 @@
 import openpyxl
 from openpyxl.worksheet.worksheet import Worksheet
 from openpyxl.utils import get_column_letter
+from openpyxl.drawing.image import Image
+from openpyxl.chart import BarChart, Reference
 from tkinter import filedialog
 from typing import Union
 from copy import copy
@@ -74,6 +76,9 @@ def extract_meal_data_big_kids(path: str) -> dict:
     return meal_data_big_kids
 
 
+# todo There has to be a way to refactor so that this code isnt so bloated. The issue is that depending on the
+# todo max_column some lists dont need to be appended and the location for where each list takes its value from
+# todo is different as well. perhaps if i iterated through lists??
 def gather_text_small_kids(sheet: Worksheet, start: int, end: int, max_column: str) -> tuple[str]:
     breakfast = []
     early = []
@@ -111,7 +116,7 @@ def gather_text_small_kids(sheet: Worksheet, start: int, end: int, max_column: s
             if row[4].value is not None:
                 snack.append(row[4].value)
 
-    return '\n'.join(breakfast), '\n'.join(early), '\n'.join(middle), '\n'.join(late)
+    return '\n'.join(breakfast), '\n'.join(early), '\n'.join(middle), '\n'.join(late), '\n'.join(snack)
 
 
 def extract_meal_data_small_kids(path: str) -> dict:
@@ -119,15 +124,13 @@ def extract_meal_data_small_kids(path: str) -> dict:
     sheet = book.active
     meal_data_small_kids = {}
     date_ranges = find_date_ranges(sheet)
-    max_column = get_column_letter(sheet.max_columns)
+    max_column = get_column_letter(sheet.max_column)
     for key, val in date_ranges.items():
         day = val[0]
         start = val[1]
         end = val[2]
         meal_data_small_kids[key] = (day,) + gather_text_small_kids(sheet, start, end, max_column)
     return meal_data_small_kids
-
-
 
 
 # add result to the end of the file name
@@ -230,6 +233,12 @@ def copy_all_elements(sheet: Worksheet, new_sheet: Worksheet):
     copy_page_size(sheet, new_sheet)
 
 
+def add_shapes(new_sheet: Worksheet):
+    image = Image('C:/Users/Ryan/Desktop/Work documents/smile kinder garden/事務書類/検食簿/image_boxes.jpg')
+    image.anchor = 'F2'
+    new_sheet.add_image(image)
+
+
 def insert_data_big_kids(date: int, data: tuple[str], new_sheet: Worksheet):
     day = data[0]
     breakfast = data[1]
@@ -242,13 +251,30 @@ def insert_data_big_kids(date: int, data: tuple[str], new_sheet: Worksheet):
     new_sheet['C25'].value = snack
 
 
-def paste_meal_data_big_kids(path: str, meal_data_big_kids: dict):
+# todo refactor code because some values are not need. perhaps change the structure of the dict as well.
+def insert_data_small_kids(date: int, data: tuple[str], new_sheet: Worksheet):
+    day = data[0]
+    breakfast = data[1]
+    early = data[2]
+    middle = data[3]
+    late = data[4]
+    snack = data[5]
+    new_sheet['F7'].value = breakfast
+    new_sheet['F16'].value = early
+    new_sheet['F18'].value = middle
+    new_sheet['F20'].value = late
+    new_sheet['F25'].value = snack
+
+
+def paste_meal_data(path: str, meal_data_big_kids: dict, meal_data_small_kids: dict):
     book = openpyxl.load_workbook(path)
     sheet = book.active
-    for key, val in meal_data_big_kids.items():
-        new_sheet = book.create_sheet(f'{key}({val[0]})')
+    for (key, val_big), (_, val_small) in zip(meal_data_big_kids.items(), meal_data_small_kids.items()):
+        new_sheet = book.create_sheet(f'{key}({val_big[0]})')
         copy_all_elements(sheet, new_sheet)
-        insert_data_big_kids(key, val, new_sheet)
+        add_shapes(new_sheet)
+        insert_data_big_kids(key, val_big, new_sheet)
+        insert_data_small_kids(key, val_small, new_sheet)
 
     book.save(new_file_path(path, added_text='_test_complete'))
 
@@ -260,7 +286,7 @@ def transfer_meal_schedule_big_kids():
     meal_data_big_kids = extract_meal_data_big_kids(big_kids_path)
     meal_data_small_kids = extract_meal_data_small_kids(small_kids_path)
     print(meal_data_big_kids)
-    paste_meal_data_big_kids(output_path, meal_data_big_kids)
+    paste_meal_data(output_path, meal_data_big_kids, meal_data_small_kids)
 
 
 def main():
