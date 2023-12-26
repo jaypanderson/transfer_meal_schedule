@@ -85,6 +85,28 @@ def new_file_path(path: str, added_text: str = 'result') -> str:
     return ans
 
 
+def copy_sheet(sheet: Worksheet, new_sheet: Worksheet) -> None:
+    """
+    copy the contents from one sheet to another sheet. This function only copies the contents of the cells and its
+    style, other aspects of the sheet are copied with other functions.
+    :param sheet:The base sheet from which the cells are copied.
+    :param new_sheet: The new sheet where the cell contents and style are pasted.
+    :return: None
+    """
+    for row in sheet:
+        for cell in row:
+            new_cell = new_sheet.cell(row=cell.row, column=cell.column, value=cell.value)
+
+            if cell.has_style:
+                new_cell.font = copy(cell.font)
+                new_cell.border = copy(cell.border)
+                new_cell.fill = copy(cell.fill)
+                new_cell.number_format = copy(cell.number_format)
+                new_cell.protection = copy(cell.protection)
+                new_cell.alignment = copy(cell.alignment)
+                new_cell.comment = copy(cell.comment)
+
+
 def paste_meal_data_big_kids(path: str, meal_data_big_kids: dict):
     book = openpyxl.load_workbook(path)
     sheet = book.active
