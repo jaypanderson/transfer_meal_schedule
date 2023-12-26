@@ -1,16 +1,18 @@
 import openpyxl
 from openpyxl.worksheet.worksheet import Worksheet
+from openpyxl.utils import get_column_letter
 from tkinter import filedialog
 from typing import Union
 from copy import copy
 from itertools import zip_longest
 
 
-
 def choose_file(file_type: int) -> str:
     if file_type == 1:
         title = '献立表を選択してください。'
     elif file_type == 2:
+        title = '離乳食献立を選択してください'
+    elif file_type == 3:
         title = '検食簿原本を選択してください。'
     else:
         title = ''
@@ -45,7 +47,7 @@ def find_date_ranges(sheet: Worksheet) -> dict[int, tuple[str, int, int]]:
     return date_ranges
 
 
-def gather_text(sheet: Worksheet, start: int, end: int) -> tuple[str]:
+def gather_text_big_kids(sheet: Worksheet, start: int, end: int) -> tuple[str]:
     breakfast = []
     lunch = []
     snack = []
@@ -68,8 +70,64 @@ def extract_meal_data_big_kids(path: str) -> dict:
         day = val[0]
         start = val[1]
         end = val[2]
-        meal_data_big_kids[key] = (day,) + gather_text(sheet, start, end)
+        meal_data_big_kids[key] = (day,) + gather_text_big_kids(sheet, start, end)
     return meal_data_big_kids
+
+
+def gather_text_small_kids(sheet: Worksheet, start: int, end: int, max_column: str) -> tuple[str]:
+    breakfast = []
+    early = []
+    middle = []
+    late = []
+    snack = []
+    if max_column == 'G':
+        for row in sheet.iter_rows(min_row=start, max_row=end):
+            if row[2].value is not None:
+                early.append(row[2].value)
+            if row[3].value is not None:
+                middle.append(row[3].value)
+            if row[4].value is not None:
+                late.append(row[4].value)
+            if row[5].value is not None:
+                breakfast.append(row[5].value)
+            if row[6].value is not None:
+                snack.append(row[6].value)
+    elif max_column == 'F':
+        for row in sheet.iter_rows(min_row=start, max_row=end):
+            if row[2].value is not None:
+                middle.append(row[2].value)
+            if row[3].value is not None:
+                late.append(row[3].value)
+            if row[4].value is not None:
+                breakfast.append(row[4].value)
+            if row[5].value is not None:
+                snack.append(row[5].value)
+    elif max_column == 'E':
+        for row in sheet.iter_rows(min_row=start, max_row=end):
+            if row[2].value is not None:
+                late.append(row[2].value)
+            if row[3].value is not None:
+                breakfast.append(row[3].value)
+            if row[4].value is not None:
+                snack.append(row[4].value)
+
+    return '\n'.join(breakfast), '\n'.join(early), '\n'.join(middle), '\n'.join(late)
+
+
+def extract_meal_data_small_kids(path: str) -> dict:
+    book = openpyxl.load_workbook(path)
+    sheet = book.active
+    meal_data_small_kids = {}
+    date_ranges = find_date_ranges(sheet)
+    max_column = get_column_letter(sheet.max_columns)
+    for key, val in date_ranges.items():
+        day = val[0]
+        start = val[1]
+        end = val[2]
+        meal_data_small_kids[key] = (day,) + gather_text_small_kids(sheet, start, end, max_column)
+    return meal_data_small_kids
+
+
 
 
 # add result to the end of the file name
@@ -195,20 +253,14 @@ def paste_meal_data_big_kids(path: str, meal_data_big_kids: dict):
     book.save(new_file_path(path, added_text='_test_complete'))
 
 
-
-
-
-
-
-
 def transfer_meal_schedule_big_kids():
-    copy_path = choose_file(1)
-    paste_path = choose_file(2)
-    meal_data_big_kids = extract_meal_data_big_kids(copy_path)
+    big_kids_path = choose_file(1)
+    small_kids_path = choose_file(2)
+    output_path = choose_file(3)
+    meal_data_big_kids = extract_meal_data_big_kids(big_kids_path)
+    meal_data_small_kids = extract_meal_data_small_kids(small_kids_path)
     print(meal_data_big_kids)
-    paste_meal_data_big_kids(paste_path, meal_data_big_kids)
-
-
+    paste_meal_data_big_kids(output_path, meal_data_big_kids)
 
 
 def main():
