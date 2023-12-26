@@ -88,9 +88,8 @@ def new_file_path(path: str, added_text: str = 'result') -> str:
 def paste_meal_data_big_kids(path: str, meal_data_big_kids: dict):
     book = openpyxl.load_workbook(path)
     sheet = book.active
-    new_book = openpyxl.Workbook()
-    new_sheet = 
     for key, val in meal_data_big_kids:
+        new_sheet = book.create_sheet(f'{key}({val[0]})')
 
 
 
