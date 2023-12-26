@@ -108,6 +108,20 @@ def copy_sheet(sheet: Worksheet, new_sheet: Worksheet) -> None:
                 new_cell.comment = copy(cell.comment)
 
 
+# replicate the cell merges from base template.
+def merge_cells(sheet: Worksheet, new_sheet: Worksheet) -> None:
+    """
+    When a new sheet is created and everything is copied, the one thing that will not be copied is the location of where
+    there are merged cells.  This function iterates over all the merged cells of the base worksheet and then merges
+    those cells in the new sheet.
+    :param sheet: The base work sheet this function will use to iterate over the location of the merged cells.
+    :param new_sheet: The new work sheet where the function will merge the cells from the base work sheet.
+    :return: None
+    """
+    for merged_cell_range in sheet.merged_cells.ranges:
+        new_sheet.merge_cells(str(merged_cell_range))
+
+
 def paste_meal_data_big_kids(path: str, meal_data_big_kids: dict):
     book = openpyxl.load_workbook(path)
     sheet = book.active
