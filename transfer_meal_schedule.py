@@ -122,6 +122,23 @@ def merge_cells(sheet: Worksheet, new_sheet: Worksheet) -> None:
         new_sheet.merge_cells(str(merged_cell_range))
 
 
+# copy the width and height of cells
+def copy_dimensions(sheet: Worksheet, new_sheet: Worksheet) -> None:
+    """
+    A function that changes the new sheet's size of the cells to match that of a another sheet. Currently, it is set up
+    so that it only copies the width of the cells.  If the height also needs to be copied, then Uncomment that portion
+    of the code and vice versa.
+    :param sheet: The sheet from which the cell dimensions will be copied from
+    :param new_sheet: The sheet where the dimensions will be pasted into.
+    :return: None
+    """
+    for row, col in zip_longest(sheet.row_dimensions, sheet.column_dimensions):
+        # if row is not None:
+        #     new_sheet.row_dimensions[row].height = sheet.row_dimensions[row].height
+        if col is not None:
+            new_sheet.column_dimensions[col].width = sheet.column_dimensions[col].width
+
+
 def paste_meal_data_big_kids(path: str, meal_data_big_kids: dict):
     book = openpyxl.load_workbook(path)
     sheet = book.active
