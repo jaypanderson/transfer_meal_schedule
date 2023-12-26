@@ -173,7 +173,15 @@ def copy_all_elements(sheet: Worksheet, new_sheet: Worksheet):
 
 
 def insert_data_big_kids(date: int, data: tuple[str], new_sheet: Worksheet):
-
+    day = data[0]
+    breakfast = data[1]
+    lunch = data[2]
+    snack = data[3]
+    new_sheet['B4'].value = new_sheet['B4'].value.replace('@', str(date))
+    new_sheet['B4'].value = new_sheet['B4'].value.replace('$', day)
+    new_sheet['C7'].value = breakfast
+    new_sheet['C16'].value = lunch
+    new_sheet['C25'].value = snack
 
 
 def paste_meal_data_big_kids(path: str, meal_data_big_kids: dict):
