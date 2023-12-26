@@ -134,8 +134,8 @@ def copy_dimensions(sheet: Worksheet, new_sheet: Worksheet) -> None:
     :return: None
     """
     for row, col in zip_longest(sheet.row_dimensions, sheet.column_dimensions):
-        # if row is not None:
-        #     new_sheet.row_dimensions[row].height = sheet.row_dimensions[row].height
+        if row is not None:
+            new_sheet.row_dimensions[row].height = sheet.row_dimensions[row].height
         if col is not None:
             new_sheet.column_dimensions[col].width = sheet.column_dimensions[col].width
 
