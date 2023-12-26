@@ -97,11 +97,11 @@ def paste_meal_data_big_kids(path: str, meal_data_big_kids: dict):
 
 
 def transfer_meal_schedule_big_kids():
-    excel_path = choose_file(1)
-    word_path = choose_file(2)
-    meal_data_big_kids = extract_meal_data_big_kids(excel_path)
+    copy_path = choose_file(1)
+    paste_path = choose_file(2)
+    meal_data_big_kids = extract_meal_data_big_kids(copy_path)
     print(meal_data_big_kids)
-    paste_meal_data_big_kids(word_path, meal_data_big_kids)
+    paste_meal_data_big_kids(paste_path, meal_data_big_kids)
 
 
 
