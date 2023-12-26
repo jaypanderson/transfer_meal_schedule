@@ -150,7 +150,6 @@ def copy_print_area(sheet: Worksheet, new_sheet: Worksheet) -> None:
     :param new_sheet: The new sheet where we will paste the print area.
     :return: None
     """
-    print(sheet.print_area)
     if sheet.print_area:
         new_sheet.print_area = sheet.print_area
 
