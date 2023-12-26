@@ -159,7 +159,17 @@ def copy_margins(sheet: Worksheet, new_sheet: Worksheet):
 
 
 def copy_page_size(sheet: Worksheet, new_sheet: Worksheet):
+    print(sheet.page_setup.paperSize)
     new_sheet.page_setup.paperSize = sheet.page_setup.paperSize
+
+
+def copy_all_elements(sheet: Worksheet, new_sheet: Worksheet):
+    copy_sheet(sheet, new_sheet)
+    merge_cells(sheet, new_sheet)
+    copy_dimensions(sheet, new_sheet)
+    copy_print_area(sheet, new_sheet)
+    copy_margins(sheet, new_sheet)
+    copy_page_size(sheet, new_sheet)
 
 
 def paste_meal_data_big_kids(path: str, meal_data_big_kids: dict):
