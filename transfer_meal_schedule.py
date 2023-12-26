@@ -129,6 +129,7 @@ def paste_meal_data_big_kids(path: str, meal_data_big_kids: dict):
         new_sheet = book.create_sheet(f'{key}({val[0]})')
         copy_sheet(sheet, new_sheet)
         merge_cells(sheet, new_sheet)
+        copy_dimensions(sheet, new_sheet)
 
     book.save(new_file_path(path, added_text='_test_complete'))
 
