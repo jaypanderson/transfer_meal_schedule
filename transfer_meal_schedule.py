@@ -243,7 +243,8 @@ def resource_path(relative_path):
 def add_shapes(new_sheet: Worksheet):
     print(os.curdir)
     print(os.getcwd())
-    image = Image('C:/Users/Ryan/Desktop/Work documents/smile kinder garden/事務書類/検食簿/image_boxes_test1.jpg')
+    path = resource_path('image_boxes.jpg')
+    image = Image(path)
     image.anchor = 'F1'
     new_sheet.add_image(image)
 
