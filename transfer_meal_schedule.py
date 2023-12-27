@@ -241,8 +241,6 @@ def resource_path(relative_path):
 
 # todo add try except clause in case this cannot find the image, so that the program doesnt crash.
 def add_shapes(new_sheet: Worksheet):
-    print(os.curdir)
-    print(os.getcwd())
     path = resource_path('image_boxes.jpg')
     image = Image(path)
     image.anchor = 'F1'
