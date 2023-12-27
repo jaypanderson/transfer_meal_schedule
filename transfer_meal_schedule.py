@@ -232,7 +232,7 @@ def copy_all_elements(sheet: Worksheet, new_sheet: Worksheet):
     copy_margins(sheet, new_sheet)
     copy_page_size(sheet, new_sheet)
 
-
+# todo add try except clause in case this cannot find the image, so that the program doesnt crash.
 def add_shapes(new_sheet: Worksheet):
     image = Image('C:/Users/Ryan/Desktop/Work documents/smile kinder garden/事務書類/検食簿/image_boxes_test1.jpg')
     image.anchor = 'F1'
