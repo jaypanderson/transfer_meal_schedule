@@ -233,6 +233,7 @@ def copy_all_elements(sheet: Worksheet, new_sheet: Worksheet):
     copy_margins(sheet, new_sheet)
     copy_page_size(sheet, new_sheet)
 
+
 # this functions is so that when using the script the image retrieval works as well as when the executabel
 # is created as well so that I don't have to write different code from when im developing and when
 # im deploying.
@@ -275,6 +276,7 @@ def insert_data_small_kids(date: int, data: tuple[str], new_sheet: Worksheet):
     new_sheet['F20'].value = late
     new_sheet['F25'].value = snack
 
+
 # todo refactor so that the first sheet of the new Excel document is deleted since it is just used as a template and
 # todo when printing just gets in the way.
 def paste_meal_data(path: str, meal_data_big_kids: dict, meal_data_small_kids: dict):
@@ -288,6 +290,7 @@ def paste_meal_data(path: str, meal_data_big_kids: dict, meal_data_small_kids: d
         insert_data_small_kids(key, val_small, new_sheet)
 
     book.save(new_file_path(path, added_text='_test_complete'))
+
 
 # todo sometimes there is no small kids meal schedule so i need to create a work around where certain
 # todo steps are skipped if no such files exist. currently by chance if i select the same file for the small kids as
