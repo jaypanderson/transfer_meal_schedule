@@ -233,6 +233,11 @@ def copy_all_elements(sheet: Worksheet, new_sheet: Worksheet):
     copy_page_size(sheet, new_sheet)
 
 
+def resource_path(relative_path):
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
+
+
 # todo add try except clause in case this cannot find the image, so that the program doesnt crash.
 def add_shapes(new_sheet: Worksheet):
     print(os.curdir)
