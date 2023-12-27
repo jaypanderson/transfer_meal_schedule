@@ -1,4 +1,6 @@
 import openpyxl
+import os
+import sys
 from openpyxl.worksheet.worksheet import Worksheet
 from openpyxl.utils import get_column_letter
 from openpyxl.drawing.image import Image
@@ -7,7 +9,6 @@ from tkinter import filedialog
 from typing import Union
 from copy import copy
 from itertools import zip_longest
-import os
 
 
 def choose_file(file_type: int) -> str:
