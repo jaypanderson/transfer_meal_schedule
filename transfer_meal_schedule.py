@@ -234,7 +234,7 @@ def copy_all_elements(sheet: Worksheet, new_sheet: Worksheet):
 
 
 def add_shapes(new_sheet: Worksheet):
-    image = Image('C:/Users/Ryan/Desktop/Work documents/smile kinder garden/事務書類/検食簿/image_boxes.jpg')
+    image = Image('C:/Users/Ryan/Desktop/Work documents/smile kinder garden/事務書類/検食簿/image_boxes_test1.jpg')
     image.anchor = 'F2'
     new_sheet.add_image(image)
 
