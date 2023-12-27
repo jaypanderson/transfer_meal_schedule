@@ -233,7 +233,9 @@ def copy_all_elements(sheet: Worksheet, new_sheet: Worksheet):
     copy_margins(sheet, new_sheet)
     copy_page_size(sheet, new_sheet)
 
-
+# this functions is so that when using the script the image retrieval works as well as when the executabel
+# is created as well so that I don't have to write different code from when im developing and when
+# im deploying.
 def resource_path(relative_path):
     base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
     return os.path.join(base_path, relative_path)
