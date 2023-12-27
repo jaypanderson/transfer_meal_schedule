@@ -221,7 +221,6 @@ def copy_margins(sheet: Worksheet, new_sheet: Worksheet):
 
 
 def copy_page_size(sheet: Worksheet, new_sheet: Worksheet):
-    print(sheet.page_setup.paperSize)
     new_sheet.page_setup.paperSize = sheet.page_setup.paperSize
 
 
