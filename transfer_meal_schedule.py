@@ -265,7 +265,8 @@ def insert_data_small_kids(date: int, data: tuple[str], new_sheet: Worksheet):
     new_sheet['F20'].value = late
     new_sheet['F25'].value = snack
 
-
+# todo refactor so that the first sheet of the new Excel document is deleted since it is just used as a template and
+# todo when printing just gets in the way.
 def paste_meal_data(path: str, meal_data_big_kids: dict, meal_data_small_kids: dict):
     book = openpyxl.load_workbook(path)
     sheet = book.active
