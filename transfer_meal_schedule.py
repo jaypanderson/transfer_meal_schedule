@@ -263,7 +263,7 @@ def insert_data_big_kids(date: int, data: tuple[str], new_sheet: Worksheet):
 
 
 # todo refactor code because some values are not need. perhaps change the structure of the dict as well.
-
+# insert the small kids meal data into a single Excel sheet.
 def insert_data_small_kids(date: int, data: tuple[str], new_sheet: Worksheet):
     day = data[0]
     breakfast = data[1]
