@@ -242,6 +242,7 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 
+# insert a image into the Excel sheet of three squares where the stamps of the teachers will go.
 # todo add try except clause in case this cannot find the image, so that the program doesnt crash.
 def add_shapes(new_sheet: Worksheet):
     path = resource_path('image_boxes.jpg')
