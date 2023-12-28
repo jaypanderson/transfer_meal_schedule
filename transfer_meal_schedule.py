@@ -279,6 +279,7 @@ def insert_data_small_kids(date: int, data: tuple[str], new_sheet: Worksheet):
 
 # todo refactor so that the first sheet of the new Excel document is deleted since it is just used as a template and
 # todo when printing just gets in the way.
+# insert the collected data into the new Excel sheet.
 def paste_meal_data(path: str, meal_data_big_kids: dict, meal_data_small_kids: dict):
     book = openpyxl.load_workbook(path)
     sheet = book.active
