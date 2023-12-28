@@ -263,6 +263,7 @@ def insert_data_big_kids(date: int, data: tuple[str], new_sheet: Worksheet):
 
 
 # todo refactor code because some values are not need. perhaps change the structure of the dict as well.
+
 def insert_data_small_kids(date: int, data: tuple[str], new_sheet: Worksheet):
     day = data[0]
     breakfast = data[1]
@@ -279,7 +280,7 @@ def insert_data_small_kids(date: int, data: tuple[str], new_sheet: Worksheet):
 
 # todo refactor so that the first sheet of the new Excel document is deleted since it is just used as a template and
 # todo when printing just gets in the way.
-# insert the collected data into the new Excel sheet.
+# insert the collected data for the big and small kids into each new Excel sheet.
 def paste_meal_data(path: str, meal_data_big_kids: dict, meal_data_small_kids: dict):
     book = openpyxl.load_workbook(path)
     sheet = book.active
