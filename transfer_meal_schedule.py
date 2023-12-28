@@ -296,6 +296,7 @@ def paste_meal_data(path: str, meal_data_big_kids: dict, meal_data_small_kids: d
 # todo steps are skipped if no such files exist. currently by chance if i select the same file for the small kids as
 # todo the big kids it returns an empty dictionary. so when it is pasted it is inserting nothing.  The problem is this
 # todo may not work always if they somehow chnage the format of the file.
+# the function that steps through the large steps of transferring the data.
 def transfer_meal_schedule_big_kids():
     big_kids_path = choose_file(1)
     small_kids_path = choose_file(2)
