@@ -306,6 +306,7 @@ def transfer_meal_schedule_big_kids():
     paste_meal_data(output_path, meal_data_big_kids, meal_data_small_kids)
 
 
+# the main function that is used to run this script
 def main():
     transfer_meal_schedule_big_kids()
 
