@@ -121,7 +121,7 @@ def gather_text_small_kids(sheet: Worksheet, start: int, end: int, max_column: s
     return '\n'.join(breakfast), '\n'.join(early), '\n'.join(middle), '\n'.join(late), '\n'.join(snack)
 
 
-def extract_meal_data_small_kids(path: str) -> dict:
+def extract_meal_data_small_kids(path: str) -> Union[dict, None]:
     if path == '':
         return None
     book = openpyxl.load_workbook(path)
