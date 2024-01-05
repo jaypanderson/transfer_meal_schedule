@@ -282,6 +282,13 @@ def insert_data_small_kids(date: int, data: tuple[str], new_sheet: Worksheet):
     new_sheet['F25'].value = snack
 
 
+# todo I fixed the issue when the user didnt pick a file because there is none for that month. I was able to handle the
+# todo error but it raised another question. what if there is mismatching dates on two of the files. which would lead
+# todo the key not being in the second dict which would mean it wont be pasted. This can happend if the person creating
+# todo the files accidentally inserts the wrong days.  i might have to refactor code like this
+
+
+
 # todo refactor so that the first sheet of the new Excel document is deleted since it is just used as a template and
 # todo when printing just gets in the way.
 # insert the collected data for the big and small kids into each new Excel sheet.
