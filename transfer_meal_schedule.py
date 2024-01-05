@@ -56,10 +56,10 @@ def gather_text_big_kids(sheet: Worksheet, start: int, end: int) -> tuple[str]:
     lunch = []
     snack = []
     for row in sheet.iter_rows(min_row=start, max_row=end):
-        if row[2].value is not None:
-            breakfast.append(row[2].value)
         if row[6].value is not None:
-            lunch.append(row[6].value)
+            breakfast.append(row[6].value)
+        if row[2].value is not None:
+            lunch.append(row[2].value)
         if row[7].value is not None:
             snack.append(row[7].value)
     return '\n'.join(breakfast), '\n'.join(lunch), '\n'.join(snack)
