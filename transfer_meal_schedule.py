@@ -288,7 +288,7 @@ def insert_data_small_kids(date: int, data: tuple[str], new_sheet: Worksheet):
 def paste_meal_data(path: str, meal_data_big_kids: dict, meal_data_small_kids: dict):
     book = openpyxl.load_workbook(path)
     sheet = book.active
-    for (key, val_big), (_, val_small) in zip(meal_data_big_kids.items(), meal_data_small_kids.items()):
+    for key, val_big in meal_data_big_kids.items():
         new_sheet = book.create_sheet(f'{key}({val_big[0]})')
         copy_all_elements(sheet, new_sheet)
         add_shapes(new_sheet)
