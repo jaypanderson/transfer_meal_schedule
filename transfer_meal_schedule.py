@@ -309,6 +309,7 @@ def paste_meal_data(path: str, meal_data_big_kids: dict, meal_data_small_kids: d
             val_small = meal_data_small_kids[key]
             insert_data_small_kids(key, val_small, new_sheet)
 
+    del book['base']
     book.save(new_file_path(path, added_text='_test_complete'))
 
 
