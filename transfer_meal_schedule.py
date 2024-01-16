@@ -312,7 +312,7 @@ def paste_meal_data(path: str, meal_data_big_kids: dict, meal_data_small_kids: d
 
 
 # the function that steps through the large steps of transferring the data.
-def transfer_meal_schedule_big_kids():
+def main():
     big_kids_path = choose_file(1)
     small_kids_path = choose_file(2)
     output_path = choose_file(3)
@@ -320,11 +320,6 @@ def transfer_meal_schedule_big_kids():
     meal_data_small_kids = extract_meal_data_small_kids(small_kids_path)
     print(meal_data_big_kids)
     paste_meal_data(output_path, meal_data_big_kids, meal_data_small_kids)
-
-
-# the main function that is used to run this script
-def main():
-    transfer_meal_schedule_big_kids()
 
 
 if __name__ == '__main__':
