@@ -277,8 +277,9 @@ def insert_data_small_kids(date: int, data: tuple[str], new_sheet: Worksheet):
     :param data: The tuple containing the meal data for this particular day that was passed in from a dictionary through
     iteration. here is the basic structure. (day of the week, breakfast, early, middle, late, snack) and here is an
     example. ('木', '野菜ハイハイン\n\n', '', '', '５倍粥\n鶏ササミと野菜（人参・グリンピース）煮物\n玉ねぎとわかめの煮物',
-    'さつま芋きなこがけ\n\n'). The day of the week is not being used because again that is being handled by the other
-    function that inserts the meal data for the big kids.
+    'さつま芋きなこがけ\n\n') In this example there are no early and middle meals so they are just empty strings.
+    The day of the week is not being used because again that is being handled by the other function that inserts the
+    meal data for the big kids. 
     :param new_sheet: The newly created sheet that the data will be inserted into.
     :return: None
     """
