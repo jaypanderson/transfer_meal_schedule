@@ -296,6 +296,13 @@ else:
 
 # insert the collected data for the big and small kids into each new Excel sheet.
 def paste_meal_data(path: str, meal_data_big_kids: dict, meal_data_small_kids: dict):
+    """
+    
+    :param path:
+    :param meal_data_big_kids:
+    :param meal_data_small_kids:
+    :return:
+    """
     book = openpyxl.load_workbook(path)
     sheet = book.active
     for key, val_big in meal_data_big_kids.items():
