@@ -297,10 +297,14 @@ else:
 # insert the collected data for the big and small kids into each new Excel sheet.
 def paste_meal_data(path: str, meal_data_big_kids: dict, meal_data_small_kids: dict):
     """
-    
-    :param path:
-    :param meal_data_big_kids:
-    :param meal_data_small_kids:
+    Insert the data from the meal schedules for the big and small kids into the document that is used to rate the meals
+    for the day.(for safety purposes.)
+    :param path: The file path for the base document that will be used to create the new document.
+    :param meal_data_big_kids: A dictionary that contains the data of the meal schedule for the big kids. The format of
+    the dictionary is as follows {date: (day of the week, breakfast, lunch, snack), ...} and here is an example of the
+    dictionary {4: ('木', '●/▲たまごボーロ\n【リッツクラッカー】\nお茶', '新春ちらし寿司\n切干大根の煮物\n花麩のすまし汁',
+     '上用まんじゅう\n▲牛乳【お茶】'), ...}
+    :param meal_data_small_kids: A dictionary that contains the data of the meal schedule for the small kids
     :return:
     """
     book = openpyxl.load_workbook(path)
@@ -330,7 +334,7 @@ def main():
     output_path = choose_file(3)
     meal_data_big_kids = extract_meal_data_big_kids(big_kids_path)
     meal_data_small_kids = extract_meal_data_small_kids(small_kids_path)
-    print(meal_data_big_kids)
+    print(meal_data_big_kids, meal_data_small_kids)
     paste_meal_data(output_path, meal_data_big_kids, meal_data_small_kids)
 
 
