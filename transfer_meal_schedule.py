@@ -270,11 +270,17 @@ def insert_data_big_kids(date: int, data: tuple[str], new_sheet: Worksheet):
 # insert the small kids meal data into a single Excel sheet.
 def insert_data_small_kids(date: int, data: tuple[str], new_sheet: Worksheet):
     """
-
-    :param date:
-    :param data: 
-    :param new_sheet:
-    :return:
+    Access the desired cells and insert the meal data of the small kids from the tuple.
+    :param date: This is the date of when this particular meal will be served, but because the function that inserts the
+    meal data for the big kids handles insertion of the date into the document this is not needed for this function.
+    However, this variable will be left here in case refactoring is needed, and it becomes necessary.
+    :param data: The tuple containing the meal data for this particular day that was passed in from a dictionary through
+    iteration. here is the basic structure. (day of the week, breakfast, early, middle, late, snack) and here is an
+    example. ('木', '野菜ハイハイン\n\n', '', '', '５倍粥\n鶏ササミと野菜（人参・グリンピース）煮物\n玉ねぎとわかめの煮物',
+    'さつま芋きなこがけ\n\n'). The day of the week is not being used because again that is being handled by the other
+    function that inserts the meal data for the big kids.
+    :param new_sheet: The newly created sheet that the data will be inserted into.
+    :return: None
     """
     breakfast = data[1]
     early = data[2]
