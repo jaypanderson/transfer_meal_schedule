@@ -317,7 +317,6 @@ def main():
     The main function of the script. First prompts the user to choose the file path for the three Excel documents needed
     to create the output documents. Extracts data from the meal schedule for the big kids and then the small kids
     (the babies) and then pastes this information into the new document this script produces.
-    :return:
     """
     big_kids_path = choose_file(1)
     small_kids_path = choose_file(2)
