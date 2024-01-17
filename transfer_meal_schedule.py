@@ -278,7 +278,7 @@ def insert_data_big_kids(date: int, data: tuple[str], new_sheet: Worksheet):
 
 # todo refactor code because some values are not need. perhaps change the structure of the dict as well.
 # insert the small kids meal data into a single Excel sheet.
-def insert_data_small_kids(date: int, data: tuple[str], new_sheet: Worksheet):
+def insert_data_small_kids(date: int, data: tuple[str], new_sheet: Worksheet) -> None:
     """
     Access the desired cells and insert the meal data of the small kids from the tuple passed in.
     :param date: This is the date of when this particular meal will be served, but because the function that inserts the
