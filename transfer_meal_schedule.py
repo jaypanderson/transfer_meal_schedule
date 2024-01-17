@@ -277,7 +277,7 @@ def insert_data_big_kids(date: int, data: tuple[str], new_sheet: Worksheet):
 # insert the small kids meal data into a single Excel sheet.
 def insert_data_small_kids(date: int, data: tuple[str], new_sheet: Worksheet):
     """
-    Access the desired cells and insert the meal data of the small kids from the tuple.
+    Access the desired cells and insert the meal data of the small kids from the tuple passed in.
     :param date: This is the date of when this particular meal will be served, but because the function that inserts the
     meal data for the big kids handles insertion of the date into the document this is not needed for this function.
     However, this variable will be left here in case refactoring is needed, and it becomes necessary.
