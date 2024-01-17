@@ -255,6 +255,13 @@ def add_shapes(new_sheet: Worksheet):
 
 # insert the big kids meal data into a single Excel sheet. As well as the date and day of the week.
 def insert_data_big_kids(date: int, data: tuple[str], new_sheet: Worksheet):
+    """
+    
+    :param date:
+    :param data:
+    :param new_sheet:
+    :return:
+    """
     day = data[0]
     breakfast = data[1]
     lunch = data[2]
