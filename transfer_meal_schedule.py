@@ -318,7 +318,7 @@ else:
 
 
 # insert the collected data for the big and small kids into each new Excel sheet.
-def paste_meal_data(path: str, meal_data_big_kids: dict, meal_data_small_kids: dict):
+def paste_meal_data(path: str, meal_data_big_kids: dict, meal_data_small_kids: dict) -> None:
     """
     Insert the data from the meal schedules for the big and small kids into the document that is used to rate the meals
     for the day.(for safety purposes.)
