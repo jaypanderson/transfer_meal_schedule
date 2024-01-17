@@ -352,7 +352,7 @@ def paste_meal_data(path: str, meal_data_big_kids: dict, meal_data_small_kids: d
 
 
 # the function that steps through the large steps of transferring the data.
-def main():
+def main() -> None:
     """
     The main function of the script. First prompts the user to choose the file path for the three Excel documents needed
     to create the output documents. Extracts data from the meal schedule for the big kids and then the small kids
