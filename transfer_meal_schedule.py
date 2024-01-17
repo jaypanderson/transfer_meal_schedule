@@ -257,10 +257,13 @@ def add_shapes(new_sheet: Worksheet):
 def insert_data_big_kids(date: int, data: tuple[str], new_sheet: Worksheet):
     """
     Access the desired cells and insert the meal data of the big kids from the tuple passed in.
-    :param date:
-    :param data:
-    :param new_sheet:
-    :return:
+    :param date: The date that this meal will be served.
+    :param data: The tuple containing the meal data for this particular day that was passed in from a dictionary through
+    iteration. here is the basic structure. (day of the week, breakfast, lunch, snack) and here is an example.
+    {1: ('金', '●/▲鉄ウエハース\n【栗とかぼちゃとさつまいもクッキー】\nお茶', '鶏肉のカレームニエル\nさつま揚げとじゃが芋の味噌煮\nハムとわか
+    めのサラダ\nごはん\n味噌汁', '●どら焼き(こしあん）\n【今川焼】\n▲牛乳【お茶】'), ...}
+    :param new_sheet: The newly created sheet that the data will be inserted into.
+    :return: None
     """
     day = data[0]
     breakfast = data[1]
