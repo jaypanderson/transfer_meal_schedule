@@ -226,10 +226,10 @@ def copy_margins(sheet: Worksheet, new_sheet: Worksheet):
 def copy_page_size(sheet: Worksheet, new_sheet: Worksheet):
     new_sheet.page_setup.paperSize = sheet.page_setup.paperSize
 
-
+# TODO finish docstring
 def copy_all_elements(sheet: Worksheet, new_sheet: Worksheet):
     """
-    
+
     :param sheet:
     :param new_sheet:
     :return:
