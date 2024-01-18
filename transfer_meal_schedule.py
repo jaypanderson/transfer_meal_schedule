@@ -241,7 +241,7 @@ def copy_all_elements(sheet: Worksheet, new_sheet: Worksheet):
 # im deploying.
 def resource_path(relative_path):
     """
-    This function changes the path depending if it accesses the image while in a .py file or in an executable file.
+    This function changes the path depending on if it accesses the image while in a .py file or in an executable file.
     Because when making an executable the location of the image attached may change from when accessing it from when
     accessing it while in a .py file, the whole path needs to be added and not just the relative path.  So essentially
     this function allows for the code to remain the same whether accessing the image through interpreter or with an
