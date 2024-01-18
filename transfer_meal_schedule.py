@@ -247,7 +247,7 @@ def resource_path(relative_path) -> str:
     this function allows for the code to remain the same whether accessing the image through interpreter or with an
     executable.  Do not fully understand how it works, so do not delete.
     :param relative_path: the relative path for the object being accessed.
-    :return:
+    :return: The new string that contains the full path of the resource being accessed.
     """
     base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
     return os.path.join(base_path, relative_path)
