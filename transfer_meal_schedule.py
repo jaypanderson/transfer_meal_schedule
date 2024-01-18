@@ -236,12 +236,12 @@ def copy_all_elements(sheet: Worksheet, new_sheet: Worksheet):
     copy_page_size(sheet, new_sheet)
 
 
-# this function is so that when using the script the image retrieval works as well as when the executabel
+# this function is so that when using the script the image retrieval works as well as when the executable
 # is created as well so that I don't have to write different code from when im developing and when
 # im deploying.
 def resource_path(relative_path):
     """
-    
+
     :param relative_path:
     :return:
     """
