@@ -239,7 +239,7 @@ def copy_all_elements(sheet: Worksheet, new_sheet: Worksheet):
 # this function is so that when using the script the image retrieval works as well as when the executable
 # is created as well so that I don't have to write different code from when im developing and when
 # im deploying.
-def resource_path(relative_path):
+def resource_path(relative_path) -> str:
     """
     This function changes the path depending on if it accesses the image while in a .py file or in an executable file.
     Because when making an executable the location of the image attached may change from when accessing it from when
