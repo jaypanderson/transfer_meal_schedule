@@ -228,6 +228,12 @@ def copy_page_size(sheet: Worksheet, new_sheet: Worksheet):
 
 
 def copy_all_elements(sheet: Worksheet, new_sheet: Worksheet):
+    """
+    
+    :param sheet:
+    :param new_sheet:
+    :return:
+    """
     copy_sheet(sheet, new_sheet)
     merge_cells(sheet, new_sheet)
     copy_dimensions(sheet, new_sheet)
