@@ -248,7 +248,7 @@ def resource_path(relative_path):
 # todo add try except clause in case this cannot find the image, so that the program doesnt crash.
 def add_shapes(new_sheet: Worksheet):
     """
-    A function that retreives an image in the same directory as this script and pastes it in the desired location.  This
+    A function that retrieves an image in the same directory as this script and pastes it in the desired location.  This
     is an image of three boxes so that stamps of the person doing the daily meal reviews can be placed.
     :param new_sheet: The new sheet created where the image will be placed.
     :return:
