@@ -240,6 +240,11 @@ def copy_all_elements(sheet: Worksheet, new_sheet: Worksheet):
 # is created as well so that I don't have to write different code from when im developing and when
 # im deploying.
 def resource_path(relative_path):
+    """
+    
+    :param relative_path:
+    :return:
+    """
     base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
     return os.path.join(base_path, relative_path)
 
