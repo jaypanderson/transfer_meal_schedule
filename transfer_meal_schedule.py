@@ -227,14 +227,14 @@ def copy_page_size(sheet: Worksheet, new_sheet: Worksheet):
     new_sheet.page_setup.paperSize = sheet.page_setup.paperSize
 
 # TODO finish docstring
-def copy_all_elements(sheet: Worksheet, new_sheet: Worksheet):
+def copy_all_elements(sheet: Worksheet, new_sheet: Worksheet) -> None:
     """
     A utility function to run other smaller functions. In openpyexl there is no straight forward way to completely copy
     all aspects of a worksheet into another.  This requires accessing specific attributes that need to be copied.  In
     the future if there are new attributes that need to be copied, create and add another function to this list.
     :param sheet: original sheet the attributes will be copied from.
     :param new_sheet: the new sheet where the attributes will be pasted into.
-    :return:
+    :return: None
     """
     copy_sheet(sheet, new_sheet)
     merge_cells(sheet, new_sheet)
