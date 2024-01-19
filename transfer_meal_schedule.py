@@ -225,9 +225,9 @@ def copy_margins(sheet: Worksheet, new_sheet: Worksheet):
 
 def copy_page_size(sheet: Worksheet, new_sheet: Worksheet):
     """
-    
-    :param sheet:
-    :param new_sheet:
+    copy the paper size of the sheet so that when printing it knows which size to use.
+    :param sheet: original sheet the attributes will be copied from.
+    :param new_sheet: the new sheet where the attributes will be pasted into.
     :return:
     """
     new_sheet.page_setup.paperSize = sheet.page_setup.paperSize
