@@ -389,7 +389,7 @@ def paste_meal_data(path: str, meal_data_big_kids: dict, meal_data_small_kids: d
         copy_all_elements(sheet, new_sheet)
         add_shapes(new_sheet)
         insert_data_big_kids(key, val_big, new_sheet)
-        # checks to see if meal data is None and if the date exists in its dictionary. this can happen if the excell
+        # checks to see if meal data is None and if the date exists in its dictionary.  dates may not exist if the Excel
         # sheet contains errors that make the dates differ between the big and small kids.
         if meal_data_small_kids and key in meal_data_small_kids:
             val_small = meal_data_small_kids[key]
