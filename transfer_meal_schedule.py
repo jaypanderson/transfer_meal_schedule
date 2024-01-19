@@ -220,6 +220,12 @@ def copy_print_area(sheet: Worksheet, new_sheet: Worksheet) -> None:
 
 
 def copy_margins(sheet: Worksheet, new_sheet: Worksheet):
+    """
+    
+    :param sheet:
+    :param new_sheet:
+    :return:
+    """
     new_sheet.page_margins = sheet.page_margins
 
 
