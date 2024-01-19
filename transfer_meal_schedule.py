@@ -219,12 +219,12 @@ def copy_print_area(sheet: Worksheet, new_sheet: Worksheet) -> None:
         new_sheet.print_area = sheet.print_area
 
 
-def copy_margins(sheet: Worksheet, new_sheet: Worksheet):
+def copy_margins(sheet: Worksheet, new_sheet: Worksheet) -> None:
     """
     copy the peper margins from one sheet to another.
     :param sheet: original sheet the attributes will be copied from.
     :param new_sheet: the new sheet where the attributes will be pasted into.
-    :return:
+    :return: None
     """
     new_sheet.page_margins = sheet.page_margins
 
