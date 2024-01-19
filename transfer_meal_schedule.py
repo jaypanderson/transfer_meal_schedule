@@ -123,8 +123,11 @@ def gather_text_small_kids(sheet: Worksheet, start: int, end: int, max_column: s
 
 def extract_meal_data_small_kids(path: str) -> Union[dict, None]:
     """
-    
-    :param path:
+    Function that extracts data from the meal schedule for the big kids and organizes the data into a library that will
+    be accessed later for pasting into a worksheet. The format of the dictionary is as follows {date: (day of the week,
+    breakfast, lunch, snack), ...} and here is an example of the dictionary {4: ('木',
+     '●/▲たまごボーロ\n【リッツクラッカー】\nお茶', '新春ちらし寿司\n切干大根の煮物\n花麩のすまし汁', '上用まんじゅう\n▲牛乳【お茶】'), ...}
+    :param path: The file path for the meal schedule.
     :return:
     """
     if path == '':
