@@ -85,7 +85,7 @@ def gather_text_small_kids(sheet: Worksheet, start: int, end: int, max_column: s
 
     for row in sheet.iter_rows(min_row=start, max_row=end):
         for i, meal in enumerate(meals[max_column], start=2):
-            if row[i]:
+            if row[i].value:
                 meal.append(row[i].value)
 
     return '\n'.join(breakfast), '\n'.join(early), '\n'.join(middle), '\n'.join(late), '\n'.join(snack)
