@@ -78,6 +78,47 @@ def extract_meal_data_big_kids(path: str) -> dict:
     return meal_data_big_kids
 
 
+def test_func(sheet: Worksheet, start: int, end: int, max_column: str) -> tuple[str]:
+    breakfast = []
+    early = []
+    middle = []
+    late = []
+    snack = []
+    meals = {'G': [breakfast, early, middle, late, snack], 'F': [breakfast, middle, late, ], }
+    if max_column == 'G':
+        for row in sheet.iter_rows(min_row=start, max_row=end):
+            if row[2].value is not None:
+                early.append(row[2].value)
+            if row[3].value is not None:
+                middle.append(row[3].value)
+            if row[4].value is not None:
+                late.append(row[4].value)
+            if row[5].value is not None:
+                breakfast.append(row[5].value)
+            if row[6].value is not None:
+                snack.append(row[6].value)
+    elif max_column == 'F':
+        for row in sheet.iter_rows(min_row=start, max_row=end):
+            if row[2].value is not None:
+                middle.append(row[2].value)
+            if row[3].value is not None:
+                late.append(row[3].value)
+            if row[4].value is not None:
+                breakfast.append(row[4].value)
+            if row[5].value is not None:
+                snack.append(row[5].value)
+    elif max_column == 'E':
+        for row in sheet.iter_rows(min_row=start, max_row=end):
+            if row[2].value is not None:
+                late.append(row[2].value)
+            if row[3].value is not None:
+                breakfast.append(row[3].value)
+            if row[4].value is not None:
+                snack.append(row[4].value)
+
+    return '\n'.join(breakfast), '\n'.join(early), '\n'.join(middle), '\n'.join(late), '\n'.join(snack)
+
+
 # todo There has to be a way to refactor so that this code isn't so bloated. The issue is that depending on the
 # todo max_column some lists dont need to be appended and the location for where each list takes its value from
 # todo is different as well. perhaps if i iterated through lists??
