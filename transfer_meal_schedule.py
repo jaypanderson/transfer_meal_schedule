@@ -78,12 +78,8 @@ def extract_meal_data_big_kids(path: str) -> dict:
     return meal_data_big_kids
 
 
-def test_func(sheet: Worksheet, start: int, end: int, max_column: str) -> tuple[str]:
-    breakfast = []
-    early = []
-    middle = []
-    late = []
-    snack = []
+def gather_text_small_kids(sheet: Worksheet, start: int, end: int, max_column: str) -> tuple[str]:
+    breakfast, early, middle, late, snack = [], [], [], [], []
     meals = {'G': [early, middle, late, breakfast, snack], 'F': [middle, late, breakfast, snack],
              'E': [late, breakfast, snack]}
 
@@ -98,7 +94,7 @@ def test_func(sheet: Worksheet, start: int, end: int, max_column: str) -> tuple[
 # todo There has to be a way to refactor so that this code isn't so bloated. The issue is that depending on the
 # todo max_column some lists dont need to be appended and the location for where each list takes its value from
 # todo is different as well. perhaps if i iterated through lists??
-def gather_text_small_kids(sheet: Worksheet, start: int, end: int, max_column: str) -> tuple[str]:
+def __gather_text_small_kids(sheet: Worksheet, start: int, end: int, max_column: str) -> tuple[str]:
     """
     A helper function to find text from specific cells in the worksheet and bundle it.  Depending on the max_column
     the locations of the cells are slightly different.  This is due to the fact that depending on how far along we are
