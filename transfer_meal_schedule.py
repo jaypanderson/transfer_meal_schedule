@@ -78,7 +78,7 @@ def extract_meal_data_big_kids(path: str) -> dict:
     return meal_data_big_kids
 
 
-# todo There has to be a way to refactor so that this code isnt so bloated. The issue is that depending on the
+# todo There has to be a way to refactor so that this code isn't so bloated. The issue is that depending on the
 # todo max_column some lists dont need to be appended and the location for where each list takes its value from
 # todo is different as well. perhaps if i iterated through lists??
 def gather_text_small_kids(sheet: Worksheet, start: int, end: int, max_column: str) -> tuple[str]:
