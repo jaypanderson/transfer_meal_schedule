@@ -82,6 +82,14 @@ def extract_meal_data_big_kids(path: str) -> dict:
 # todo max_column some lists dont need to be appended and the location for where each list takes its value from
 # todo is different as well. perhaps if i iterated through lists??
 def gather_text_small_kids(sheet: Worksheet, start: int, end: int, max_column: str) -> tuple[str]:
+    """
+    
+    :param sheet:
+    :param start:
+    :param end:
+    :param max_column:
+    :return:
+    """
     breakfast = []
     early = []
     middle = []
