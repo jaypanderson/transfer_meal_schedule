@@ -105,55 +105,55 @@ def gather_text_small_kids(sheet: Worksheet, start: int, end: int, max_column: s
     return '\n'.join(breakfast), '\n'.join(early), '\n'.join(middle), '\n'.join(late), '\n'.join(snack)
 
 
-def __gather_text_small_kids(sheet: Worksheet, start: int, end: int, max_column: str) -> tuple[str]:
-    """
-    A helper function to find text from specific cells in the worksheet and bundle it.  Depending on the max_column
-    the locations of the cells are slightly different.  This is due to the fact that depending on how far along we are
-    in the year early middle and late meals may not be served.
-    :param sheet: The sheet where the text will be gathered from.
-    :param start: The start of the row range of where we are looking for the text.
-    :param end: The end of the row range of where we are looking for the text
-    :param max_column: The highest letter column being used.  if G, early middle and late are being served. if F only
-    middle and late are being served and then if E only late is being served.
-    :return: a packaged tuple of all the text data that will be inserted into a dictionary for later use.
-    """
-    breakfast = []
-    early = []
-    middle = []
-    late = []
-    snack = []
-    if max_column == 'G':
-        for row in sheet.iter_rows(min_row=start, max_row=end):
-            if row[2].value is not None:
-                early.append(row[2].value)
-            if row[3].value is not None:
-                middle.append(row[3].value)
-            if row[4].value is not None:
-                late.append(row[4].value)
-            if row[5].value is not None:
-                breakfast.append(row[5].value)
-            if row[6].value is not None:
-                snack.append(row[6].value)
-    elif max_column == 'F':
-        for row in sheet.iter_rows(min_row=start, max_row=end):
-            if row[2].value is not None:
-                middle.append(row[2].value)
-            if row[3].value is not None:
-                late.append(row[3].value)
-            if row[4].value is not None:
-                breakfast.append(row[4].value)
-            if row[5].value is not None:
-                snack.append(row[5].value)
-    elif max_column == 'E':
-        for row in sheet.iter_rows(min_row=start, max_row=end):
-            if row[2].value is not None:
-                late.append(row[2].value)
-            if row[3].value is not None:
-                breakfast.append(row[3].value)
-            if row[4].value is not None:
-                snack.append(row[4].value)
-
-    return '\n'.join(breakfast), '\n'.join(early), '\n'.join(middle), '\n'.join(late), '\n'.join(snack)
+# def __gather_text_small_kids(sheet: Worksheet, start: int, end: int, max_column: str) -> tuple[str]:
+#     """
+#     A helper function to find text from specific cells in the worksheet and bundle it.  Depending on the max_column
+#     the locations of the cells are slightly different.  This is due to the fact that depending on how far along we are
+#     in the year early middle and late meals may not be served.
+#     :param sheet: The sheet where the text will be gathered from.
+#     :param start: The start of the row range of where we are looking for the text.
+#     :param end: The end of the row range of where we are looking for the text
+#     :param max_column: The highest letter column being used.  if G, early middle and late are being served. if F only
+#     middle and late are being served and then if E only late is being served.
+#     :return: a packaged tuple of all the text data that will be inserted into a dictionary for later use.
+#     """
+#     breakfast = []
+#     early = []
+#     middle = []
+#     late = []
+#     snack = []
+#     if max_column == 'G':
+#         for row in sheet.iter_rows(min_row=start, max_row=end):
+#             if row[2].value is not None:
+#                 early.append(row[2].value)
+#             if row[3].value is not None:
+#                 middle.append(row[3].value)
+#             if row[4].value is not None:
+#                 late.append(row[4].value)
+#             if row[5].value is not None:
+#                 breakfast.append(row[5].value)
+#             if row[6].value is not None:
+#                 snack.append(row[6].value)
+#     elif max_column == 'F':
+#         for row in sheet.iter_rows(min_row=start, max_row=end):
+#             if row[2].value is not None:
+#                 middle.append(row[2].value)
+#             if row[3].value is not None:
+#                 late.append(row[3].value)
+#             if row[4].value is not None:
+#                 breakfast.append(row[4].value)
+#             if row[5].value is not None:
+#                 snack.append(row[5].value)
+#     elif max_column == 'E':
+#         for row in sheet.iter_rows(min_row=start, max_row=end):
+#             if row[2].value is not None:
+#                 late.append(row[2].value)
+#             if row[3].value is not None:
+#                 breakfast.append(row[3].value)
+#             if row[4].value is not None:
+#                 snack.append(row[4].value)
+#
+#     return '\n'.join(breakfast), '\n'.join(early), '\n'.join(middle), '\n'.join(late), '\n'.join(snack)
 
 
 def extract_meal_data_small_kids(path: str) -> Union[dict, None]:
