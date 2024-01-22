@@ -105,6 +105,9 @@ def gather_text_small_kids(sheet: Worksheet, start: int, end: int, max_column: s
     return '\n'.join(breakfast), '\n'.join(early), '\n'.join(middle), '\n'.join(late), '\n'.join(snack)
 
 
+# TODO the bellow function is commented out due to the function above replacing it. Until further tests are done this will
+# TODO remain here in case the above code is somehow incorrect.
+
 # def __gather_text_small_kids(sheet: Worksheet, start: int, end: int, max_column: str) -> tuple[str]:
 #     """
 #     A helper function to find text from specific cells in the worksheet and bundle it.  Depending on the max_column
