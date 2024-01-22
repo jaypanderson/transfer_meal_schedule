@@ -83,7 +83,9 @@ def extract_meal_data_big_kids(path: str) -> dict:
 # todo is different as well. perhaps if i iterated through lists??
 def gather_text_small_kids(sheet: Worksheet, start: int, end: int, max_column: str) -> tuple[str]:
     """
-    
+    A helper function to find text from specific cells in the worksheet and bundle it.  Depending on the max_column
+    the locations of the cells are slightly different.  This is due to the fact that depending on how far along we are
+    in the year early middle and late meals may not be served.
     :param sheet:
     :param start:
     :param end:
