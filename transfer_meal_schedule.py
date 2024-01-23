@@ -53,11 +53,11 @@ def find_date_ranges(sheet: Worksheet) -> dict[int, tuple[str, int, int]]:
 
 def gather_text_big_kids(sheet: Worksheet, start: int, end: int) -> tuple[str]:
     """
-    
-    :param sheet:
-    :param start:
-    :param end:
-    :return:
+    A helper function to find text from specific cells in the worksheet and bundle it.
+    :param sheet: The sheet where the text will be gathered from.
+    :param start: The start of the row range of where we are looking for the text.
+    :param end: The end of the row range of where we are looking for the text
+    :return: A packaged tuple of all the text data that will be inserted into a dictionary for later use.
     """
     breakfast = []
     lunch = []
