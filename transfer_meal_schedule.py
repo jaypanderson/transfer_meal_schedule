@@ -67,7 +67,8 @@ def gather_text_big_kids(sheet: Worksheet, start: int, end: int) -> tuple[str]:
 
 def extract_meal_data_big_kids(path: str) -> dict:
     """
-
+    A function that finds how many days the meal schedule has as well as finding how many rows in the sheet each meal of
+    that day takes up, and places each meal for that day in an organized.dictionary.
     :param path:
     :return:
     """
