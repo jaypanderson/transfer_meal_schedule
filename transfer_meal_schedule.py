@@ -66,6 +66,11 @@ def gather_text_big_kids(sheet: Worksheet, start: int, end: int) -> tuple[str]:
 
 
 def extract_meal_data_big_kids(path: str) -> dict:
+    """
+
+    :param path:
+    :return:
+    """
     book = openpyxl.load_workbook(path)
     sheet = book.active
     date_ranges = find_date_ranges(sheet)
