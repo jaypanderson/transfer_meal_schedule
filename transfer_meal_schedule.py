@@ -52,6 +52,13 @@ def find_date_ranges(sheet: Worksheet) -> dict[int, tuple[str, int, int]]:
 
 
 def gather_text_big_kids(sheet: Worksheet, start: int, end: int) -> tuple[str]:
+    """
+    
+    :param sheet:
+    :param start:
+    :param end:
+    :return:
+    """
     breakfast = []
     lunch = []
     snack = []
