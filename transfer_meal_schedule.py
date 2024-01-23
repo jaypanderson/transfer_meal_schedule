@@ -170,7 +170,7 @@ def extract_meal_data_small_kids(path: str) -> Union[dict, None]:
     that day takes up, and places each meal for that day in an organized.dictionary.
     :param path: The file path for the meal schedule.
     :return: A dictionary of the meal schedule organized by date The format of the dictionary is as follows
-    {date: (day of the week, breakfast, lunch, snack), ...} and here is an example of the dictionary
+    {date: (day of the week, breakfast, early, middle, late, snack), ...} and here is an example of the dictionary
     {4: ('木', '●/▲たまごボーロ\n【リッツクラッカー】\nお茶', '新春ちらし寿司\n切干大根の煮物\n花麩のすまし汁', '上用まんじゅう\n▲牛乳【お茶】'), ...}
     the return can potentially be None if the path of the meal schedule is a empty string ('').  This happens when the
     user is prompted to choose a file and closes the window without choosing. This returns a '' empty string.  This will
