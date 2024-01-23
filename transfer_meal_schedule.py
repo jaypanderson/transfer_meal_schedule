@@ -72,7 +72,8 @@ def extract_meal_data_big_kids(path: str) -> dict:
     :param path: The file path for the meal schedule.
     :return: A dictionary of the meal schedule organized by date. The format of the dictionary is as follows,
     {date: (day of the week, breakfast, lunch, snack), ...} and here is an example of the dictionary
-    {4: ('木', '●/▲たまごボーロ\n【リッツクラッカー】\nお茶', '新春ちらし寿司\n切干大根の煮物\n花麩のすまし汁', '上用まんじゅう\n▲牛乳【お茶】'), ...}
+    {28: ('木', '野菜ハイハイン\n\n', '', '', '５倍粥\n鶏ササミと野菜（人参・グリンピース）煮物\n玉ねぎとわかめの煮物',
+    'さつま芋きなこがけ\n\n'), ...} In this example the early and middle meals are not there, so they are empty strings.
     """
     book = openpyxl.load_workbook(path)
     sheet = book.active
