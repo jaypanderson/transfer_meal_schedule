@@ -165,8 +165,7 @@ def gather_text_small_kids(sheet: Worksheet, start: int, end: int, max_column: s
 def extract_meal_data_small_kids(path: str) -> Union[dict, None]:
     """
     A function that finds how many days the meal schedule has as well as finding how many rows in the sheet each meal of
-    that day takes up, and places each meal for that day in an organized.
-    dictionary.
+    that day takes up, and places each meal for that day in an organized.dictionary.
     :param path: The file path for the meal schedule.
     :return: A dictionary of the meal schedule organized by date The format of the dictionary is as follows
     {date: (day of the week, breakfast, lunch, snack), ...} and here is an example of the dictionary
