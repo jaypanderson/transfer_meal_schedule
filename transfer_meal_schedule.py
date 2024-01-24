@@ -32,9 +32,12 @@ def find_start_of_dates(sheet: Worksheet) -> int:
 
 def find_date_ranges(sheet: Worksheet) -> dict[int, tuple[str, int, int]]:
     """
-    
-    :param sheet:
-    :return:
+    Finds how many rows each meal uses and saves that information into a dictionary for later use. In the Excel file the
+    meal schedule for a particular date is spread into multiple rows for readability. This functions finds the start and
+    end row for all dates.
+    :param sheet: The sheet where the ranges will be gathered from.
+    :return: A dictionary that contains the date as the keys and the row ranges as the value that represent which rows
+    are part of the meal schedule for a given date. The dictionary is formatted as the following. {date: (day, start, end)}
     """
     start_row = find_start_of_dates(sheet)
     date_ranges = {}
