@@ -37,7 +37,9 @@ def find_date_ranges(sheet: Worksheet) -> dict[int, tuple[str, int, int]]:
     end row for all dates.
     :param sheet: The sheet where the ranges will be gathered from.
     :return: A dictionary that contains the date as the keys and the row ranges as the value that represent which rows
-    are part of the meal schedule for a given date. The dictionary is formatted as the following. {date: (day, start, end)}
+    are part of the meal schedule for a given date. The dictionary is formatted as the following.
+    {date: (day, start, end), ...}, ex) {2: ('木', 6, 10)}. The ranges are formatted to be inclusive since openpyxl
+    typically uses inclusive ranges.
     """
     start_row = find_start_of_dates(sheet)
     date_ranges = {}
