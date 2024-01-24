@@ -31,6 +31,11 @@ def find_start_of_dates(sheet: Worksheet) -> int:
 
 
 def find_date_ranges(sheet: Worksheet) -> dict[int, tuple[str, int, int]]:
+    """
+    
+    :param sheet:
+    :return:
+    """
     start_row = find_start_of_dates(sheet)
     date_ranges = {}
     date = None
