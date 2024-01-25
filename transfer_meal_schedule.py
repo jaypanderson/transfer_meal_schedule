@@ -25,7 +25,7 @@ def choose_file(file_type: int) -> str:
 
 def find_start_of_dates(sheet: Worksheet) -> int:
     """
-    This finds the row that contains the date (int in this case) which
+    This finds the rows that contains the date (int in this case) which gives us cut off points
     :param sheet:
     :return:
     """
@@ -35,6 +35,8 @@ def find_start_of_dates(sheet: Worksheet) -> int:
             return i
 
 
+# TODO yeah the above function can probably be merged with the one bellow to make a simpler function. if i have cut off
+# TODO points all i need to do to create ranges is add a number that is one less to the next number.
 def find_date_ranges(sheet: Worksheet) -> dict[int, tuple[str, int, int]]:
     """
     Finds how many rows each meal uses and saves that information into a dictionary for later use. In the Excel file the
