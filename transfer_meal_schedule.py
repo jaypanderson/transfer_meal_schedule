@@ -25,9 +25,10 @@ def choose_file(file_type: int) -> str:
 
 def find_start_of_dates(sheet: Worksheet) -> int:
     """
-    This finds the rows that contains the date (int in this case) which gives us cut off points
-    :param sheet:
-    :return:
+    This finds the rows that contains the date (int in this case) which gives us cut off points that we can use to
+    create date ranges.
+    :param sheet: The sheet where we search for the first occurring integer in the first column.
+    :return: the number of the row where we find the first integer. (using 1-indexing)
     """
     for i, row in enumerate(sheet.iter_rows(), start=1):
         if isinstance(row[0].value, int):
