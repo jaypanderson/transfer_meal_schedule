@@ -25,7 +25,7 @@ def choose_file(file_type: int) -> str:
 
 def find_start_of_dates(sheet: Worksheet) -> int:
     """
-    
+    This finds the row that contains the date (int in this case) which
     :param sheet:
     :return:
     """
@@ -51,6 +51,7 @@ def find_date_ranges(sheet: Worksheet) -> dict[int, tuple[str, int, int]]:
     date = None
     day = None
     start = None
+    # TODO this code can probably use some refactoring to make it cleaner
     for i, row in enumerate(sheet.iter_rows(min_row=start_row), start=start_row):
         if i == start_row:
             start = i
