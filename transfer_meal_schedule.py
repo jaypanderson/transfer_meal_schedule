@@ -240,6 +240,7 @@ def new_file_path(path: str, added_text: str = 'result') -> str:
     return ans
 
 
+# TODO this function can probably be merged with the 5 functions bellow it.
 def copy_sheet(sheet: Worksheet, new_sheet: Worksheet) -> None:
     """
     copy the contents from one sheet to another sheet. This function only copies the contents of the cells and its
