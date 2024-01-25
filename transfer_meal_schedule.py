@@ -12,6 +12,11 @@ from itertools import zip_longest
 
 
 def choose_file(file_type: int) -> str:
+    """
+    
+    :param file_type:
+    :return:
+    """
     if file_type == 1:
         title = '献立表を選択してください。'
     elif file_type == 2:
