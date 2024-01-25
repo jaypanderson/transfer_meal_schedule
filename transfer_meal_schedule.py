@@ -13,8 +13,10 @@ from itertools import zip_longest
 
 def choose_file(file_type: int) -> str:
     """
-    
-    :param file_type:
+    Display dialogue window for the user to choose a specified file.  The dialogue box will have text indicating which
+    file should be chosen
+    :param file_type: An integer that represents which file should be chosen.  Depending on the number, the text
+    displayed will change to the appropriate one.
     :return:
     """
     if file_type == 1:
