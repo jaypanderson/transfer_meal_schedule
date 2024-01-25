@@ -4,7 +4,6 @@ import sys
 from openpyxl.worksheet.worksheet import Worksheet
 from openpyxl.utils import get_column_letter
 from openpyxl.drawing.image import Image
-from openpyxl.chart import BarChart, Reference
 from tkinter import filedialog
 from typing import Union
 from copy import copy
