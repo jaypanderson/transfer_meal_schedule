@@ -24,6 +24,11 @@ def choose_file(file_type: int) -> str:
 
 
 def find_start_of_dates(sheet: Worksheet) -> int:
+    """
+    
+    :param sheet:
+    :return:
+    """
     for i, row in enumerate(sheet.iter_rows(), start=1):
         if isinstance(row[0].value, int):
             # we add one because openpyxl uses 1 indexing.
