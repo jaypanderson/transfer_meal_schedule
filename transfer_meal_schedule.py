@@ -76,6 +76,10 @@ def find_date_ranges(sheet: Worksheet) -> dict[int, tuple[str, int, int]]:
     return date_ranges
 
 
+def _find_date_ranges(sheet: Worksheet) -> dict[int, tuple[str, int, int]]:
+    pass
+
+
 def gather_text_big_kids(sheet: Worksheet, start: int, end: int) -> tuple[str]:
     """
     A helper function to find text from specific cells in the worksheet and bundle it.
