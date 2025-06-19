@@ -53,6 +53,7 @@ def find_date_ranges(sheet: Worksheet) -> dict[int, tuple[str, int, int]]:
     {date: (day, start, end), ...}, ex) {2: ('木', 6, 10)}. The ranges are formatted to be inclusive since openpyxl
     typically uses inclusive ranges.
     """
+    valid_days = {'月', '火', '水', '木', '金', '土', '日'}
     start_row = find_start_of_dates(sheet)
     date_ranges = {}
     date = None
@@ -64,7 +65,7 @@ def find_date_ranges(sheet: Worksheet) -> dict[int, tuple[str, int, int]]:
             start = i
             date = row[0].value
             day = row[1].value
-        elif row[0].value is not None:
+        elif isinstance(row[0].value, int) and row[1].value in valid_days:
             end = i - 1
             date_ranges[date] = (day, start, end)
             start = i
