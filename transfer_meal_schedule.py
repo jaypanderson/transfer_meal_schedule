@@ -71,7 +71,8 @@ def find_date_ranges(sheet: Worksheet) -> dict[int, tuple[str, int, int]]:
             start = i
             date = row[0].value
             day = row[1].value
-
+    date_ranges[date] = (day, start, i - 1) # added so that the final day is included as well.
+    print(date_ranges)
     return date_ranges
 
 
